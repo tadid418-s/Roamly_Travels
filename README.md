@@ -101,5 +101,5 @@ Travel-Camping--NextJS-Frontend/
 
 ## License
 
-This repository is provided as an application template and example UI. You are free to modify and use it for your projects.
+This repository is provided as an application template and example UI. You are free to modify and use components of it , if you use the whole website dont forget to credit or mention me.
 
