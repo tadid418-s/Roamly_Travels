@@ -1,51 +1,78 @@
-// ...existing code...
-import React from 'react'
+"use client"
 
-const Guide = () => {
+import { HOW_IT_WORKS } from "@/constants"
+import CustomCursor from "./CustomCursor"
+
+const HowItWorks = () => {
+  const scrollToNextSection = () => {
+    const nextSection = document.querySelector('#tours') || document.querySelector('#packages')
+    if (nextSection) {
+      nextSection.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
   return (
-    <section className="flexCenter flex-col">
-      <div className="padding-container max-container w-full pb-24">
-        <img src="/camp.svg" alt="camp" width={50} height={50} style={{ width: 'auto', height: 'auto' }} />
-        <p className="uppercase regular-18 -mt-1 mb-3 text-green-50">
-          We are here for you
-        </p>
-        <div className="flex flex-wrap justify-between gap-5 lg:gap-10">
-          <h2 className="bold-40 lg:bold-64 xl:max-w-[390px]">Guide You to Easy Path</h2>
-          <p className="regular-16 text-gray-30 xl:max-w-[520px]">Only with the hilink application you will no longer get lost and get lost again, because we already support offline maps when there is no internet connection in the field. Invite your friends, relatives and friends to have fun in the wilderness through the valley and reach the top of the mountain</p>
-        </div>
-      </div>
+    <section id="services" className="py-20 bg-[#f9f9f9]">
+      <CustomCursor />
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="flex flex-col-reverse lg:flex-row lg:gap-12 lg:items-center">
+          {/* Left Side – Image Panel */}
+          <div className="lg:w-1/2 mt-10 lg:mt-0">
+            <div 
+              className="relative rounded-xl shadow-lg overflow-hidden group cursor-target cursor-none"
+              onClick={scrollToNextSection}
+            >
+              <img 
+                src="/img-1.png" 
+                alt="Traveler exploring landscape"
+                className="w-full h-96 lg:h-[500px] object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+              {/* Hover overlay */}
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300"></div>
+            </div>
+          </div>
 
-      <div className="flexCenter max-container relative w-full">
-        <img 
-          src="/boat.png"
-          alt="boat"
-          width={1440}
-          height={580}
-          className="w-full object-cover object-center 2xl:rounded-5xl"
-          style={{ width: 'auto', height: 'auto' }}
-        />
-
-        <div className="absolute flex bg-white py-8 pl-5 pr-7 gap-3 rounded-3xl border shadow-md md:left-[5%] lg:top-20">
-          <img 
-            src="/meter.svg"
-            alt="meter"
-            width={16}
-            height={158}
-            className="h-full w-auto"
-            style={{ width: 'auto', height: 'auto' }}
-          />
-          <div className="flexBetween flex-col">
-            <div className='flex w-full flex-col'>
-              <div className="flexBetween w-full">
-                <p className="regular-16 text-gray-20">Destination</p>
-                <p className="bold-16 text-green-50">48 min</p>
-              </div>
-              <p className="bold-20 mt-2">Aguas Calientes</p>
+          {/* Right Side – How It Works Steps */}
+          <div className="lg:w-1/2 space-y-8">
+            {/* Title Block */}
+            <div className="space-y-4">
+              <p className="text-sm uppercase tracking-wider font-medium" style={{ color: '#5BAF1A' }}>
+                How it works
+              </p>
+              <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 font-fakt">
+                One click for you
+              </h2>
             </div>
 
-            <div className='flex w-full flex-col'>
-              <p className="regular-16 text-gray-20">Start track</p>
-              <h4 className="bold-20 mt-2 whitespace-nowrap">Wonorejo Pasuruan</h4>
+            {/* Steps Layout */}
+            <div className="space-y-6">
+              {HOW_IT_WORKS.map((step, index) => (
+                <div 
+                  key={step.id} 
+                  className="flex gap-4 items-start p-4 rounded-xl hover:bg-white/50 hover:shadow-md transition-all duration-300 group"
+                >
+                  {/* Icon */}
+                  <div className="flex-shrink-0 w-12 h-12 bg-[#5BAF1A]/20 rounded-full flex items-center justify-center group-hover:bg-[#5BAF1A]/40 group-hover:shadow-sm transition-all duration-300">
+                    <img 
+                      src={step.icon} 
+                      alt={step.title}
+                      width={24}
+                      height={24}
+                      className="text-gray-700 transition-colors duration-300"
+                    />
+                  </div>
+                  
+                  {/* Content */}
+                  <div className="flex-1">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2 transition-colors duration-300 group-hover:text-[#5BAF1A]">
+                      {step.title}
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed text-base">
+                      {step.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -54,4 +81,4 @@ const Guide = () => {
   )
 }
 
-export default Guide
+export default HowItWorks

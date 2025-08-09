@@ -1,79 +1,76 @@
-// ...existing code...
-import Button from './Button'
+"use client"
+
+import { STATISTICS } from "@/constants"
 
 const Hero = () => {
   return (
-    <section className="max-container padding-container flex flex-col gap-20 py-10 pb-32 md:gap-28 lg:py-20 xl:flex-row">
-      <div className="hero-map" />
-
-      <div className="relative z-20 flex flex-1 flex-col xl:w-1/2">
-        <img 
-          src="/camp.svg"
-          alt="camp"
-          width={50}
-          height={50}
-          className="absolute left-[-5px] top-[-30px] w-10 lg:w-[50px]"
-          style={{ width: 'auto', height: 'auto' }}
-        />
-        <h1 className="bold-52 lg:bold-88">Putuk Truno Camp Area</h1>
-        <p className="regular-16 mt-6 text-gray-30 xl:max-w-[520px]">
-          We want to be on each of your journeys seeking the satisfaction of seeing the incorruptible beauty of nature. We can help you on an adventure around the world in just one app
-        </p>
-
-        <div className="my-11 flex flex-wrap gap-5">
-          <div className="flex items-center gap-2">
-            {Array(5).fill(1).map((_, index) => (
-              <img 
-                src="/star.svg"
-                key={index}
-                alt="star"
-                width={24}
-                height={24}
-                style={{ width: 'auto', height: 'auto' }}
-              />
-            ))}
-          </div>
-
-          <p className="bold-16 lg:bold-20 text-blue-70">
-            198k
-            <span className="regular-16 lg:regular-20 ml-1">Excellent Reviews</span>
-          </p>
-        </div>
-
-        <div className="flex flex-col w-full gap-3 sm:flex-row">
-          <Button 
-            type="button" 
-            title="Download App" 
-            variant="btn_green" 
-          />
-          <Button 
-            type="button" 
-            title="How we work?" 
-            icon="/play.svg"
-            variant="btn_white_text" 
-          />
-        </div>
+    <section className="relative min-h-screen flex items-center justify-center pt-16 lg:pt-20">
+      {/* Background Image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: "url('/hero-section.jpg')",
+        }}
+      >
+        <div className="absolute inset-0 bg-black/30"></div>
       </div>
 
-      <div className="relative flex flex-1 items-start">
-        <div className="relative z-20 flex w-[268px] flex-col gap-8 rounded-3xl bg-green-90 px-7 py-8">
+      {/* Hero Content */}
+      <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-6">
+        <h1 className="text-5xl md:text-7xl font-bold mb-6 font-fakt">
+          Extraordinary natural and cultural charm
+        </h1>
+        <p className="text-xl md:text-2xl mb-12 text-gray-200">
+          Exploring the world with Roamly is an unforgettable adventure.
+        </p>
 
-           <div className="flex flex-col">
-            <div className="flexBetween">
-              <p className="regular-16 text-gray-20">Location</p>
-              <img src="/close.svg" alt="close" width={24} height={24} style={{ width: 'auto', height: 'auto' }} />
-            </div>
-            <p className="bold-20 text-white">Aguas Calientes</p>
-          </div>
+        {/* Floating Glassmorphism Search Bar */}
+        <div className="w-full max-w-4xl mx-auto">
+          <div className="bg-white/10 backdrop-blur-md rounded-full shadow-md border border-white/20 px-6 py-4">
+            <div className="flex flex-col md:flex-row items-center gap-4">
+              {/* Date Input */}
+              <div className="flex-1 flex items-center gap-3 min-w-0">
+                <svg className="w-5 h-5 text-white/80 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                <span className="text-white/90 font-medium text-sm whitespace-nowrap">Date</span>
+                <svg className="w-4 h-4 text-white/60 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
 
-          <div className="flexBetween">
-            <div className="flex flex-col">
-              <p className="regular-16 block text-gray-20">Distance</p>
-              <p className="bold-20 text-white">173.28 mi</p>
-            </div>
-            <div className="flex flex-col">
-              <p className="regular-16 block text-gray-20">Elevation</p>
-              <p className="bold-20 text-white">2.040 km</p>
+              {/* Vertical Divider */}
+              <div className="hidden md:block w-px h-6 bg-white/20"></div>
+
+              {/* Budget Input */}
+              <div className="flex-1 flex items-center gap-3 min-w-0">
+                <svg className="w-5 h-5 text-white/80 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
+                </svg>
+                <span className="text-white/90 font-medium text-sm whitespace-nowrap">Budget</span>
+                <svg className="w-4 h-4 text-white/60 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
+
+              {/* Vertical Divider */}
+              <div className="hidden md:block w-px h-6 bg-white/20"></div>
+
+              {/* Guest Input */}
+              <div className="flex-1 flex items-center gap-3 min-w-0">
+                <svg className="w-5 h-5 text-white/80 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                </svg>
+                <span className="text-white/90 font-medium text-sm whitespace-nowrap">Guest</span>
+                <svg className="w-4 h-4 text-white/60 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
+
+              {/* Search Button */}
+              <button className="bg-white text-black px-6 py-2 rounded-full text-sm font-medium hover:bg-neutral-200 transition-colors duration-200 flex-shrink-0">
+                Search
+              </button>
             </div>
           </div>
         </div>

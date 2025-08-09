@@ -1,8 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Test font loading */
+.test-font {
+  font-family: 'Outfit', sans-serif;
+}
 
 * {
   margin: 0;
@@ -10,8 +15,16 @@
   box-sizing: border-box;
 }
 
+/* Apply Outfit font globally */
 body {
-  font-family: Inter;
+  font-family: 'Outfit', sans-serif !important;
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  font-family: 'Outfit', sans-serif;
 }
 
 @layer utilities {
@@ -29,6 +42,12 @@ body {
   }
   .btn_dark_green_outline  { 
     @apply border-gray-20 bg-green-90 px-8 py-5 text-white
+  }
+  .btn_outline { 
+    @apply border-gray-300 bg-transparent px-6 py-3 text-gray-700 transition-all hover:bg-gray-50 hover:border-gray-400
+  }
+  .btn_primary { 
+    @apply border-blue-600 bg-blue-600 px-6 py-3 text-white transition-all hover:bg-blue-700
   }
   
   .max-container {
@@ -53,6 +72,21 @@ body {
 
   .flexEnd {
     @apply flex items-center justify-end;
+  }
+
+  /* Line Clamp Utilities */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 
   /* FONTS */
@@ -143,6 +177,11 @@ body {
   .get-app {
     @apply max-container relative flex w-full  flex-col justify-between gap-32 overflow-hidden bg-green-90 bg-pattern bg-cover bg-center bg-no-repeat px-6 py-12 text-white sm:flex-row sm:gap-12 sm:py-24 lg:px-20 xl:max-h-[598px] 2xl:rounded-5xl;
   }
+}
+
+/* Smooth scroll for in-page anchors */
+html {
+  scroll-behavior: smooth;
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */

@@ -1,70 +1,57 @@
-import { FEATURES } from '@/constants'
-// ...existing code...
-import React from 'react'
+import { TOUR_PACKAGES } from "@/constants"
+import Button from './Button'
+import DestinationCard from './DestinationCard'
+import './DestinationCard.css'
 
-const Features = () => {
+const TourPackages = () => {
   return (
-    <section className="flex-col flexCenter overflow-hidden bg-feature-bg bg-center bg-no-repeat py-24">
-      <div className="max-container padding-container relative w-full flex justify-end">
-        <div className="flex flex-1 lg:min-h-[900px]">
-          <img
-            src="/phone.png"
-            alt="phone"
-            width={440}
-            height={1000}
-            className="feature-phone"
-            style={{ width: 'auto', height: 'auto' }}
-          />
+    <section className="py-20 bg-white">
+      <div className="max-w-7xl mx-auto px-6">
+        {/* Section Header */}
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-16">
+          <div className="mb-8 lg:mb-0">
+            <h2 className="text-4xl font-bold text-black uppercase font-fakt">
+              OUR TOURIST DESTINATION
+            </h2>
+          </div>
+          <p className="text-[#5BAF1A] text-lg max-w-md">
+            Our tourist destinations offer an unrivaled blend of natural beauty & cultural richness.
+          </p>
         </div>
 
-        <div className="z-20 flex w-full flex-col lg:w-[60%]">
-          <div className='relative'>
-            <img
-              src="/camp.svg"
-              alt="camp"
-              width={50}
-              height={50}
-              className="absolute left-[-5px] top-[-28px] w-10 lg:w-[50px]"
-              style={{ width: 'auto', height: 'auto' }}
-            />
-            <h2 className="bold-40 lg:bold-64">Our Features</h2>
-          </div>
-          <ul className="mt-10 grid gap-10 md:grid-cols-2 lg:mg-20 lg:gap-20">
-            {FEATURES.map((feature) => (
-              <FeatureItem 
-                key={feature.title}
-                title={feature.title} 
-                icon={feature.icon}
-                description={feature.description}
+        {/* Tour Package Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 justify-center mb-12">
+          {TOUR_PACKAGES.map((tour) => (
+            <div key={tour.id} className="flex justify-center">
+              <DestinationCard
+                imageUrl={tour.image}
+                duration={tour.duration}
+                rating={tour.rating}
+                dateRange={tour.dateRange}
+                title={tour.name}
+                price={tour.price}
+                location={tour.location}
+                enableTilt={true}
+                enableMobileTilt={false}
               />
-            ))}
-          </ul>
+            </div>
+          ))}
+        </div>
+
+        {/* View More Button */}
+        <div className="flex justify-center">
+          <button className="flex items-center gap-3 px-6 py-2.5 rounded-full bg-[#0a0a0a] text-white font-medium hover:shadow-lg transition-all duration-300 group">
+            <span className="text-sm">VIEW MORE</span>
+            <div className="w-6 h-6 rounded-full bg-white flex items-center justify-center">
+              <svg className="w-3 h-3 text-[#0a0a0a]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17l9.2-9.2M17 17V7H7" />
+              </svg>
+            </div>
+          </button>
         </div>
       </div>
     </section>
   )
 }
 
-type FeatureItem = {
-  title: string;
-  icon: string;
-  description: string;
-}
-
-const FeatureItem = ({ title, icon, description }: FeatureItem) => {
-  return (
-    <li className="flex w-full flex-1 flex-col items-start">
-      <div className="rounded-full p-4 lg:p-7 bg-green-50">
-        <img src={icon} alt="map" width={28} height={28} style={{ width: 'auto', height: 'auto' }} />
-      </div>
-      <h2 className="bold-20 lg:bold-32 mt-5 capitalize">
-        {title}
-      </h2>
-      <p className="regular-16 mt-5 bg-white/80 text-gray-30 lg:mt-[30px] lg:bg-none">
-        {description}
-      </p>
-    </li>
-  )
-}
-
-export default Features
+export default TourPackages

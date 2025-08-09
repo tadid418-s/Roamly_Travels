@@ -7,6 +7,12 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        'fakt': ['var(--font-outfit)', 'Outfit', 'sans-serif'],
+        'fakt-regular': ['var(--font-outfit)', 'Outfit', 'sans-serif'],
+        'fakt-bold': ['var(--font-outfit)', 'Outfit', 'sans-serif'],
+        'outfit': ['var(--font-outfit)', 'Outfit', 'sans-serif'],
+      },
       colors: {
         green: {
           50: '#30AF5B',
@@ -24,6 +30,8 @@ module.exports = {
         },
         blue: {
           70: '#021639',
+          600: '#2563EB',
+          700: '#1D4ED8',
         },
         yellow: {
           50: '#FEC601',

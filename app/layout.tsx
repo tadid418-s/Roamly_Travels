@@ -1,17 +1,24 @@
 import type { Metadata } from 'next';
+import { Outfit } from 'next/font/google';
 
 import './globals.css'
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
+const outfit = Outfit({ 
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-outfit',
+});
+
 export const metadata: Metadata = {
-  title: 'Travel UI/UX for Camping | Next.js Web Application',
-  description: 'A modern, responsive, and feature-rich travel and camping web application built with Next.js, React, and Tailwind CSS. Explore camping destinations, features, and guides with a beautiful UI/UX.',
+  title: 'Roamly - Extraordinary Travel Experiences',
+  description: 'Explore the world with Roamly. Discover extraordinary natural beauty, rich culture, and unforgettable adventures with our curated travel experiences.',
   authors: [
-    { name: 'Arnob Mahmud', url: 'https://arnob-mahmud.vercel.app/' }
+    { name: 'Roamly Team', url: 'https://roamly.com' }
   ],
   keywords: [
-    'Next.js', 'React', 'Tailwind CSS', 'UI/UX', 'Camping', 'Travel App', 'TypeScript', 'Responsive Design', 'Component Reuse', 'Modern Web', 'App Router', 'Static Assets', 'Open Source', 'Learning Project', 'Arnob Mahmud'
+    'Travel', 'Adventure', 'Tourism', 'Destinations', 'Vacation', 'Booking', 'Roamly', 'Travel Packages', 'Cultural Tours', 'Nature Tours'
   ],
   icons: {
     icon: '/favicon.ico',
@@ -19,16 +26,16 @@ export const metadata: Metadata = {
     apple: '/favicon.ico',
   },
   openGraph: {
-    title: 'Travel UI/UX for Camping | Next.js Web Application',
-    description: 'A modern, responsive, and feature-rich travel and camping web application built with Next.js, React, and Tailwind CSS. Explore camping destinations, features, and guides with a beautiful UI/UX.',
-    url: 'https://arnob-mahmud.vercel.app/',
-    siteName: 'Travel UI/UX for Camping',
+    title: 'Roamly - Extraordinary Travel Experiences',
+    description: 'Explore the world with Roamly. Discover extraordinary natural beauty, rich culture, and unforgettable adventures.',
+    url: 'https://roamly.com',
+    siteName: 'Roamly',
     images: [
       {
         url: '/hero.png',
         width: 1200,
         height: 630,
-        alt: 'Travel UI/UX for Camping Hero Image',
+        alt: 'Roamly Travel Hero Image',
       },
     ],
     locale: 'en_US',
@@ -43,7 +50,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
+      <body className={`${outfit.variable} font-outfit`}>
         <Navbar />
         <main className="relative overflow-hidden">
           {children}

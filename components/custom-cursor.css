@@ -1,0 +1,28 @@
+.custom-cursor {
+  position: fixed;
+  width: 110px; /* slightly smaller circle */
+  height: 110px;
+  background: #5BAF1A; /* darker lime for better contrast */
+  border: none;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 10px 30px rgba(214, 255, 107, 0.35);
+}
+
+.custom-cursor .arrow {
+  display: grid;
+  place-items: center;
+  color: #0a0a0a; /* arrow color to match buttons */
+}
+
+.custom-cursor .arrow .arrow-svg {
+  width: 28px;
+  height: 28px;
+}
+
+
