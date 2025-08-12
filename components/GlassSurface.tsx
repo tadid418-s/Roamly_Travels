@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useId } from "react";
+import React, { useEffect, useRef, useId, useState } from "react";
 import "./GlassSurface.css";
 
 export interface GlassSurfaceProps {
@@ -68,6 +68,7 @@ const GlassSurface: React.FC<GlassSurfaceProps> = ({
   const filterId = `glass-filter-${id}`;
   const redGradId = `red-grad-${id}`;
   const blueGradId = `blue-grad-${id}`;
+  const [isMounted, setIsMounted] = useState(false);
   
   const containerRef = useRef<HTMLDivElement>(null);
   const feImageRef = useRef<SVGFEImageElement>(null);
@@ -176,8 +177,14 @@ const GlassSurface: React.FC<GlassSurfaceProps> = ({
     setTimeout(updateDisplacementMap, 0);
   }, [width, height]);
 
+  // Set mounted state after component mounts
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   const supportsSVGFilters = () => {
-    if (typeof navigator === 'undefined' || typeof document === 'undefined') {
+    // During SSR or before mount, return false to use fallback
+    if (typeof navigator === 'undefined' || typeof document === 'undefined' || !isMounted) {
       return false;
     }
     
@@ -189,9 +196,13 @@ const GlassSurface: React.FC<GlassSurfaceProps> = ({
       return false;
     }
 
-    const div = document.createElement("div");
-    div.style.backdropFilter = `url(#${filterId})`;
-    return div.style.backdropFilter !== "";
+    try {
+      const div = document.createElement("div");
+      div.style.backdropFilter = `url(#${filterId})`;
+      return div.style.backdropFilter !== "";
+    } catch (error) {
+      return false;
+    }
   };
 
   const containerStyle: React.CSSProperties = {

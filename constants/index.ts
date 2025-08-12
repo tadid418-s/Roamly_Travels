@@ -33,14 +33,14 @@ export const FEATURED_DESTINATIONS = [
   },
   {
     id: 3,
-    image: '/danakil.webp',
+    image: '/Danakil.webp',
     destination: 'Danakil Depression Expedition',
     location: 'Afar Region',
     description: 'Otherworldly salt flats, neon hydrothermal fields, and active volcanism.',
   },
   {
     id: 4,
-    image: '/omo.webp',
+    image: '/Omo.webp',
     destination: 'Omo Valley Cultural Circuit',
     location: 'South Omo, SNNPR',
     description: 'Immersive encounters with diverse cultures and living traditions.',
@@ -99,7 +99,7 @@ export const TOUR_PACKAGES = [
   },
   {
     id: 3,
-    image: '/danakil.webp',
+    image: '/Danakil.webp',
     duration: '3 Days',
     rating: '4.7',
     dateRange: '20 NOVEMBER - 22 NOVEMBER',
@@ -109,7 +109,7 @@ export const TOUR_PACKAGES = [
   },
   {
     id: 4,
-    image: '/omo.webp',
+    image: '/Omo.webp',
     duration: '6 Days',
     rating: '4.6',
     dateRange: '01 DECEMBER - 06 DECEMBER',
@@ -162,7 +162,7 @@ export const BLOG_POSTS = [
   },
   {
     id: 3,
-    image: '/omo.webp',
+    image: '/Omo.webp',
     date: 'Feb 02, 2025',
     title: 'Into the Omo Valley: Cultures, Markets, and Ceremonies',
     excerpt: 'How to travel responsibly in South Omo: choosing community-led tours, market days to plan around, and what to bring.',
