@@ -26,7 +26,7 @@ export const FEATURED_DESTINATIONS = [
   },
   {
     id: 2,
-    image: '/lalibela.jpg',
+    image: '/Lalibela.jpg',
     destination: 'Lalibela Rock-Hewn Churches',
     location: 'Lalibela, Amhara',
     description: 'UNESCO-listed medieval monolithic churches carved from solid rock.',
@@ -89,7 +89,7 @@ export const TOUR_PACKAGES = [
   },
   {
     id: 2,
-    image: '/lalibela.jpg',
+    image: '/Lalibela.jpg',
     duration: '4 Days',
     rating: '4.8',
     dateRange: '05 NOVEMBER - 08 NOVEMBER',
@@ -155,7 +155,7 @@ export const BLOG_POSTS = [
   },
   {
     id: 2,
-    image: '/lalibela.jpg',
+    image: '/Lalibela.jpg',
     date: 'Jan 22, 2025',
     title: 'Lalibela: The Living Wonder of the World',
     excerpt: 'Insider tips for visiting the rock-hewn churches respectfully—festival seasons, dress, local guides, and photography etiquette.',
