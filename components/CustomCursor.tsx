@@ -8,6 +8,8 @@ export default function CustomCursor() {
   const [active, setActive] = useState(false);
 
   useEffect(() => {
+    if (typeof window === 'undefined') return;
+    
     const move = (e: MouseEvent) => {
       setPosition({ x: e.clientX, y: e.clientY });
     };
@@ -16,6 +18,8 @@ export default function CustomCursor() {
   }, []);
 
   useEffect(() => {
+    if (typeof document === 'undefined') return;
+    
     const targets = document.querySelectorAll(".cursor-target");
     const onEnter = () => setActive(true);
     const onLeave = () => setActive(false);

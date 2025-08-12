@@ -5,6 +5,8 @@ import CustomCursor from "./CustomCursor"
 
 const HowItWorks = () => {
   const scrollToNextSection = () => {
+    if (typeof document === 'undefined') return;
+    
     const nextSection = document.querySelector('#tours') || document.querySelector('#packages')
     if (nextSection) {
       nextSection.scrollIntoView({ behavior: 'smooth' })

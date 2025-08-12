@@ -225,6 +225,8 @@ const DestinationCardComponent: React.FC<DestinationCardProps> = ({
     const deviceOrientationHandler = handleDeviceOrientation as EventListener;
 
     const handleClick = () => {
+      // Check if mobile tilt is enabled and protocol is HTTPS
+      if (typeof window === 'undefined') return;
       if (!enableMobileTilt || window.location.protocol !== 'https:') return;
       if (typeof (window.DeviceMotionEvent as any).requestPermission === 'function') {
         (window.DeviceMotionEvent as any)
