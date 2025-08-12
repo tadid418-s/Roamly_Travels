@@ -21,7 +21,7 @@ const Hero = () => {
           Extraordinary natural and cultural charm
         </h1>
         <p className="text-xl md:text-2xl mb-12 text-gray-200">
-          Exploring the world with Roamly is an unforgettable adventure.
+          Exploring the Ethiopia with Roamly is an unforgettable adventure.
         </p>
 
         {/* Floating Glassmorphism Search Bar */}
